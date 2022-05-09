@@ -6,25 +6,40 @@ const ItemsMock = [
   {
     id: 1,
     itemName: 'Ботинки',
-    itemDescription: 'Сотрите какие потрясающие ботинки',
-    price: 10000,
+    itemDescription: 'Смотрите, какие потрясающие ботинки',
+    price: 70000,
   },
-  { id: 2, itemName: 'Шапка', itemDescription: 'Очень красивая  шапка', price: 5000 },
-  { id: 3, itemName: 'Пиджак', itemDescription: 'Очень красивая пиджак', price: 20000 },
-  { id: 4, itemName: 'Платье', itemDescription: 'Очень красивая  платье', price: 50000 },
+  {
+    id: 2,
+    itemName: 'Шапка',
+    itemDescription: 'Очень красивая шапка',
+    price: 1000,
+  },
+  {
+    id: 3,
+    itemName: 'Платье',
+    itemDescription: 'Лучшее платье на свете',
+    price: 20000,
+  },
+  {
+    id: 4,
+    itemName: 'Пиджак',
+    itemDescription: 'Ну очень модный пиджак',
+    price: 5000,
+  },
 ];
 
 const ItemsList = () => {
   return (
-    <div className={style.items_list_wrapper}>
-      <p>Список товров:</p>
-      <div className={style.item_list}>
+    <div className={style.items_list__wrapper}>
+      <p>Список товаров:</p>
+      <div className={style.items_list}>
         {ItemsMock.map((item) => {
           const { id, itemName, itemDescription } = item;
-          return <Item key={`ID: ${id} ${item}`} name={itemName} description={itemDescription} />;
+          return <Item key={`ID: ${id}`} name={itemName} description={itemDescription} />;
         })}
         {/* <Item name={ItemsMock.itemName} description={ItemsMock.itemDescription} />
-        <Item name="ШАПКА" description="Очень красивая шапка" />
+        <Item name="Шапка" description="Очень красивая шапка" />
         <Item name={ItemsMock.itemName} description={ItemsMock.itemDescription} />
         <Item name={ItemsMock.itemName} description={ItemsMock.itemDescription} /> */}
       </div>

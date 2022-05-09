@@ -6,15 +6,16 @@ interface IItem {
   description: string;
 }
 
-const Item: FC<IItem> = (props: any) => {
+const Item: FC<IItem> = (props) => {
   const { name, description } = props;
 
   return (
     <div className={style.item_container}>
       <p>{name}</p>
-      <div>Описание</div>
+      <p>Описание:</p>
       <p>{description}</p>
     </div>
   );
 };
+
 export default Item;

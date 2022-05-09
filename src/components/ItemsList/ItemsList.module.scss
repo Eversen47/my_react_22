@@ -1,9 +1,10 @@
-.items_list_wrapper {
-    padding: 10px;
-    flex: 1 0 auto;
+.items_list__wrapper {
+  padding: 10px;
+  flex: 1 0 auto;
 }
-.item_list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+
+.items_list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
