@@ -3,15 +3,12 @@ import Button from '../../shared/Button';
 import style from './ItemsList.module.scss';
 
 const ItemsList = () => {
-  const [chartItemsAmount, setChartItemsAmout] = useState(0);
-
+  const [chartItemsAmount, setChartItemsAmount] = useState(0);
   const [name, setName] = useState('');
 
-  console.log(chartItemsAmount);
-
-  const handleAddItemTOChart = () => {
+  const handleAddItemToChart = () => {
     if (chartItemsAmount < 5) {
-      setChartItemsAmout(chartItemsAmount + 1);
+      setChartItemsAmount(chartItemsAmount + 1);
     }
   };
 
@@ -20,13 +17,13 @@ const ItemsList = () => {
   };
 
   return (
-    <div className={style.item_list__wrapper}>
+    <div className={style.items_list__wrapper}>
       <div>
-        <p>{chartItemsAmount ? `Колличество товаров: ${chartItemsAmount}` : 'Корзина пуста'}</p>
+        <p>{chartItemsAmount ? `Количество товаров: ${chartItemsAmount}` : 'Корзина пуста'}</p>
 
-        {chartItemsAmount === 5 && <p>Корзина заполнина!</p>}
+        {chartItemsAmount === 5 && <p>Корзина заполнена!</p>}
 
-        <Button btnText="Добавить в корзину" handleClick={handleAddItemTOChart} />
+        <Button btnText="Добавить в корзину" handleClick={handleAddItemToChart} />
       </div>
 
       <div>
