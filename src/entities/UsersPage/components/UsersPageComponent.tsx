@@ -8,12 +8,10 @@ interface IProps {
 }
 
 const UsersPageComponent: FC<IProps> = ({ usersDataAttr }) => {
-  const myVar = true;
   return (
     <div>
       <p>Список пользователей:</p>
-      {/* <div style={{ display: `${myVar ? 'flex' : 'block'}`, flexWrap: 'wrap', gap: '20px' }}> */}
-      <div className={`${myVar ? style.user_list : ''}`}>
+      <div className={style.user_list}>
         {usersDataAttr.length ? (
           usersDataAttr.map((user) => {
             const { id, name, email } = user;
