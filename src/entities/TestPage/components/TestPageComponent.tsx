@@ -1,56 +1,60 @@
-import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 const TestPageComponent = () => {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCount] = useState(0);
   const [someArray, setSomeArray] = useState([1, 2, 3]);
 
   const updatedArray = useMemo(() => {
     return someArray.map((num) => {
       console.log('hello');
-
       return num + 10;
     });
   }, [someArray]);
 
   // componentDidMount
-  //   useEffect(() => {
-  //     console.log('Компонент был отображен');
-  // componentWillUnmount
-  //     return () => {
-  //       console.log('Компонент был удален');
-  //     };
-  //   }, []);
+  useEffect(() => {
+    console.log('Компонент отображен');
+  }, []);
 
   // componentDidUpdate
+  //   useEffect(() => {
+  //     console.log('Компонент обновлен');
+  //   });
 
   //   useEffect(() => {
-  //     console.log('COUNTER был обновлен');
+  //     console.log('COUNTER обновлен');
   //   }, [counter]);
+
   //   useEffect(() => {
-  //     console.log('COUNTER ИЛИ SOMEARRAY был обновлен');
+  //     console.log('SOME_ARRAY обновлен');
+  //   }, [someArray]);
+
+  //   useEffect(() => {
+  //     console.log('COUNTER ИЛИ SOME_ARRAY обновлен');
   //   }, [counter, someArray]);
-  //   useEffect(() => {
-  //     console.log('КОМПОНЕНТ был обновлен');
-  //   });
+
+  // componentWillUnmount
+  useEffect(() => {
+    return () => {
+      console.log('Компонент был удален');
+    };
+  }, []);
 
   return (
     <div>
-      <p>Компонент страницы</p>
-      <hr />
-      <div>{counter}</div>
-      <button type="button" onClick={() => setCounter((prev) => prev + 1)}>
-        Увеличить счетчик
+      <p>{counter}</p>
+      <button type="button" onClick={() => setCount((prev) => prev + 1)}>
+        Увеличить counter
       </button>
       <hr />
       <button type="button" onClick={() => setSomeArray((prev) => [...prev, prev.length + 1])}>
         Добавить число в массив
       </button>
-      <div>
-        {updatedArray.map((num, index) => (
-          <div key={`${num + index}`}>{num}</div>
-        ))}
-      </div>
+      {updatedArray.map((num, index) => {
+        return <div key={`${num + index}`}>{num}</div>;
+      })}
     </div>
   );
 };
+
 export default TestPageComponent;
